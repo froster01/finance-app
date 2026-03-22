@@ -1,0 +1,39 @@
+<!-- app/views/transactions/index.html.erb -->
+<h1>Transactions</h1>
+
+<div class="import-section">
+  <h3>Import Bank Statement (CSV)</h3>
+  <%= form_with(url: import_transactions_path, local: true, multipart: true) do |form| %>
+    <div>
+      <%= form.file_field :file, accept: '.csv' %>
+    </div>
+    <div style="margin-top: 10px;">
+      <%= form.submit "Upload CSV" %>
+    </div>
+  <% end %>
+</div>
+
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.date %></td>
+        <td><%= transaction.description %></td>
+        <td><%= transaction.category %></td>
+        <td><%= number_to_currency(transaction.amount) %></td>
+        <td><%= transaction.transaction_type.capitalize %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
