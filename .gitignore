@@ -1,0 +1,79 @@
+# See https://help.github.com/articles/ignoring-files for more about ignoring files.
+
+# Ignore bundler cache
+/vendor/bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore tmp/cache
+/tmp/cache/*
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+/config/credentials/*.key
+
+# Ignore test coverage reports
+/coverage/
+
+# Ignore Rails assets
+/public/assets
+/app/assets/builds/*
+
+# Ignore byebug history
+.byebug_history
+
+# Ignore Spring files
+/spring/
+
+# Ignore Node modules
+/node_modules
+/app/assets/config/manifest.js
+/app/assets/builds/.keep
+
+# Ignore Yarn cache
+/yarn-error.log
+/yarn-install.log
+
+# Ignore environment variables
+.env
+.env.local
+.env.*.local
+
+# Ignore database
+*.sqlite3
+*.sqlite3-*
+
+# Ignore Docker volumes data (if any)
+/docker-volumes
+
+# Ignore IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Ignore RSpec
+/spec/examples.txt
+
+# Ignore SimpleCov
+/coverage/
+
+# Ignore boilerplate files
+/doc
+/hoodie

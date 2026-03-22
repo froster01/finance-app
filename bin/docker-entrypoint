@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+# 1. Clean up PID file if it exists (prevents server crash on restart)
+if [ -f tmp/pids/server.pid ]; then
+  rm tmp/pids/server.pid
+fi
+
+# 2. Prepare database (create or migrate)
+if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
+  ./bin/rails db:prepare
+fi
+
+exec "${@}"
