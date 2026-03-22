@@ -15,14 +15,16 @@ ActiveRecord::Schema[7.1].define(version: 2026_03_22_212209) do
   enable_extension "plpgsql"
 
   create_table "transactions", force: :cascade do |t|
-    t.decimal "amount"
+    t.decimal "amount", precision: 10, scale: 2
     t.string "description"
     t.date "date"
     t.string "category"
-    t.integer "transaction_type"
+    t.integer "transaction_type", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_transactions_on_category"
+    t.index ["date"], name: "index_transactions_on_date"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
